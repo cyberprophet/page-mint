@@ -100,7 +100,7 @@ body {
 .slide__content {
   max-width: 1200px;
   width: 90%;
-  min-height: 68vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,8 +126,6 @@ h1 {
 .title-badge {
   display: inline-block;
   padding: 0.35rem 1rem;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
   color: var(--accent-light);
   font-size: 0.85rem;
   font-weight: 500;
@@ -147,6 +145,10 @@ h1 {
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 2rem;
+}
+.title-sub strong {
+  color: var(--accent);
+  font-weight: 700;
 }
 .title-meta {
   display: flex;
