@@ -1,61 +1,64 @@
-/* ── Variables ── */
+/* ── Variables — PageMint Design System ── */
 :root {
-  --font-sans: 'Space Grotesk', 'Noto Sans KR', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --accent: #6C5CE7;
-  --accent-light: #A29BFE;
-  --accent-dim: rgba(108, 92, 231, 0.15);
-  --green: #00B894;
-  --orange: #FDCB6E;
-  --red: #FF6B6B;
+  /* Brand colors from AppColors */
+  --accent: #6DE1D2;          /* primary — Mint */
+  --accent-light: #A2F0E6;    /* aiAccentLight */
+  --accent-dark: #52C4B5;     /* primaryDark */
+  --accent-dim: rgba(109, 225, 210, 0.12);
+  --secondary: #FFD63A;       /* Sunny Yellow */
+  --orange: #FFA955;           /* Warm Orange / warning */
+  --red: #F75A5A;              /* Coral / error */
+  --green: #34D399;            /* success */
   --blue: #74B9FF;
   --radius: 12px;
   --radius-sm: 6px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Dark Theme (default) ── */
+/* ── Dark Theme (default) — matches AppColors dark ── */
 [data-theme="dark"] {
-  --bg: #0A0A0F;
-  --bg-surface: #14141F;
-  --bg-card: #1A1A2E;
-  --text: #E8E8F0;
-  --text-secondary: #9090A8;
-  --border: #2A2A3E;
-  --code-bg: #1E1E30;
+  --bg: #0D0F14;               /* darkBg */
+  --bg-surface: #161B27;       /* darkSurface */
+  --bg-card: #1E2538;          /* darkCard */
+  --text: #E2E8F0;             /* darkTextPrimary */
+  --text-secondary: #94A3B8;   /* darkTextSecondary */
+  --border: #2D3748;           /* darkBorder */
+  --code-bg: #161B27;
 }
 
-/* ── Light Theme ── */
+/* ── Light Theme — matches AppColors light ── */
 [data-theme="light"] {
-  --bg: #FAFAFE;
-  --bg-surface: #F0F0F6;
-  --bg-card: #FFFFFF;
-  --text: #1A1A2E;
-  --text-secondary: #6060A0;
-  --border: #D0D0E0;
-  --code-bg: #F5F5FB;
+  --bg: #EFF2F7;               /* lightBg */
+  --bg-surface: #FFFFFF;       /* lightSurface */
+  --bg-card: #F5F7FA;          /* lightCard */
+  --text: #0F172A;             /* lightTextPrimary */
+  --text-secondary: #334155;   /* lightTextSecondary */
+  --border: #CBD5E1;           /* lightBorder */
+  --code-bg: #F5F7FA;
 }
 
 @media (prefers-color-scheme: dark) {
   [data-theme="system"] {
-    --bg: #0A0A0F;
-    --bg-surface: #14141F;
-    --bg-card: #1A1A2E;
-    --text: #E8E8F0;
-    --text-secondary: #9090A8;
-    --border: #2A2A3E;
-    --code-bg: #1E1E30;
+    --bg: #0D0F14;
+    --bg-surface: #161B27;
+    --bg-card: #1E2538;
+    --text: #E2E8F0;
+    --text-secondary: #94A3B8;
+    --border: #2D3748;
+    --code-bg: #161B27;
   }
 }
 @media (prefers-color-scheme: light) {
   [data-theme="system"] {
-    --bg: #FAFAFE;
-    --bg-surface: #F0F0F6;
-    --bg-card: #FFFFFF;
-    --text: #1A1A2E;
-    --text-secondary: #6060A0;
-    --border: #D0D0E0;
-    --code-bg: #F5F5FB;
+    --bg: #EFF2F7;
+    --bg-surface: #FFFFFF;
+    --bg-card: #F5F7FA;
+    --text: #0F172A;
+    --text-secondary: #334155;
+    --border: #CBD5E1;
+    --code-bg: #F5F7FA;
   }
 }
 
@@ -95,11 +98,15 @@ body {
 
 /* ── Slide Content ── */
 .slide__content {
-  max-width: 900px;
-  width: 100%;
+  max-width: 1200px;
+  width: 90%;
+  min-height: 68vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem 3rem;
 }
-.slide__content--wide { max-width: 1100px; }
+.slide__content--wide { max-width: 1400px; width: 92%; }
 
 h1 {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
@@ -129,7 +136,7 @@ h1 {
 }
 .title-main {
   font-size: clamp(3rem, 6vw, 5rem) !important;
-  background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--blue));
+  background: linear-gradient(135deg, var(--accent-light), var(--accent), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -640,7 +647,7 @@ h1 {
 }
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
   width: 0;
   transition: width 0.4s ease;
 }
