@@ -137,9 +137,51 @@ class SlideManager {
   }
 }
 
+/* ── 3D Card Tilt ── */
+class CardTilt {
+  constructor() {
+    this.nodes = document.querySelectorAll('.arch-node, .persona-card');
+    this.init();
+  }
+  init() {
+    this.nodes.forEach(node => {
+      // Add glare overlay
+      const glare = document.createElement('div');
+      glare.classList.add('card-glare');
+      node.appendChild(glare);
+
+      node.addEventListener('mousemove', (e) => this.onMove(e, node, glare));
+      node.addEventListener('mouseleave', () => this.onLeave(node, glare));
+    });
+  }
+  onMove(e, node, glare) {
+    const rect = node.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateY = ((x - centerX) / centerX) * 15;
+    const rotateX = ((centerY - y) / centerY) * 15;
+
+    node.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    node.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.35)';
+
+    const bgX = (x / rect.width) * 100;
+    const bgY = (y / rect.height) * 100;
+    glare.style.backgroundPosition = `${bgX}% ${bgY}%`;
+  }
+  onLeave(node, glare) {
+    node.style.transform = '';
+    node.style.boxShadow = '';
+    glare.style.backgroundPosition = '';
+  }
+}
+
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
   new ThemeManager();
   const sm = new SlideManager();
   sm.init();
+  new CardTilt();
 });

@@ -6,8 +6,9 @@
   <title>PageMint — Architecture Overview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
     <section class="slide slide--title" data-slide="0">
       <div class="slide__content">
         <div class="title-badge animate-in">Architecture Overview</div>
-        <h1 class="title-main animate-in">PageMint</h1>
+        <h1 class="title-main animate-in">페이지민트</h1>
         <p class="title-sub animate-in">
           상품 상세페이지 제작을<br>
           <strong>AI 에이전트 팀</strong>이 대신합니다
@@ -43,38 +44,35 @@
 
     <!-- SLIDE 1: 제품 데모 흐름 -->
     <section class="slide" data-slide="1">
-      <div class="slide__content">
+      <div class="slide__content slide__content--wide">
         <h1 class="animate-in">사용자가 경험하는 흐름</h1>
         <p class="subtitle animate-in">상품 이미지 하나로 시작해서, 완성된 상세페이지까지</p>
 
-        <div class="phase-flow animate-in">
-          <div class="phase-item">
-            <div class="phase-num">Step 1</div>
-            <div class="phase-name">업로드</div>
-            <div class="phase-desc">상품 이미지와<br>간단한 설명 입력</div>
+        <div class="phase-screenshots animate-in">
+          <div class="phase-screenshot-item">
+            <div class="phase-num">Phase 1</div>
+            <div class="phase-name">Planning</div>
+            <a href="https://github.com/user-attachments/assets/1e3a306e-c969-4c57-a3a5-b7811283281f" target="_blank" rel="noopener noreferrer"><img src="https://github.com/user-attachments/assets/1e3a306e-c969-4c57-a3a5-b7811283281f" alt="Phase 1: Planning"></a>
+            <div class="phase-desc">상품 이미지와 간단한 설명 입력<br>AI가 질문하며 방향 설정</div>
           </div>
-          <div class="phase-arrow">&rarr;</div>
-          <div class="phase-item">
-            <div class="phase-num">Step 2</div>
-            <div class="phase-name">대화</div>
-            <div class="phase-desc">AI가 질문하고<br>사용자가 답하며 방향 설정</div>
-          </div>
-          <div class="phase-arrow">&rarr;</div>
-          <div class="phase-item">
-            <div class="phase-num">Step 3</div>
-            <div class="phase-name">생성</div>
+          <div class="phase-screenshot-item">
+            <div class="phase-num">Phase 2</div>
+            <div class="phase-name">Production</div>
+            <a href="https://github.com/user-attachments/assets/c0c93c81-3e92-4b80-a9c7-dda27262b291" target="_blank" rel="noopener noreferrer"><img src="https://github.com/user-attachments/assets/c0c93c81-3e92-4b80-a9c7-dda27262b291" alt="Phase 2: Production"></a>
             <div class="phase-desc">카피·이미지·레이아웃<br>자동 제작</div>
           </div>
-          <div class="phase-arrow">&rarr;</div>
-          <div class="phase-item">
-            <div class="phase-num">Step 4</div>
-            <div class="phase-name">완성</div>
-            <div class="phase-desc">검수 후 수정,<br>최종 페이지 출력</div>
+          <div class="phase-screenshot-item">
+            <div class="phase-num">Phase 3</div>
+            <div class="phase-name">Review</div>
+            <a href="https://github.com/user-attachments/assets/ba5059a7-c5c9-4795-949e-6a6784633b24" target="_blank" rel="noopener noreferrer"><img src="https://github.com/user-attachments/assets/ba5059a7-c5c9-4795-949e-6a6784633b24" alt="Phase 3: Review"></a>
+            <div class="phase-desc">섹션별 리뷰<br>승인 및 수정</div>
           </div>
-        </div>
-
-        <div class="quote animate-in">
-          겉으로는 단순한 채팅이지만, 뒤에서는<br><strong>6개 시스템이 실시간으로 협업</strong>하고 있습니다
+          <div class="phase-screenshot-item">
+            <div class="phase-num">Phase 4</div>
+            <div class="phase-name">Completed</div>
+            <a href="https://github.com/user-attachments/assets/1032a2e6-5889-4e56-afef-61ff08e7ab04" target="_blank" rel="noopener noreferrer"><img src="https://github.com/user-attachments/assets/1032a2e6-5889-4e56-afef-61ff08e7ab04" alt="Phase 4: Completed"></a>
+            <div class="phase-desc">최종 페이지 출력<br>다운로드 및 내보내기</div>
+          </div>
         </div>
       </div>
     </section>
@@ -82,147 +80,135 @@
     <!-- SLIDE 2: 서비스 체인 아키텍처 -->
     <section class="slide" data-slide="2">
       <div class="slide__content slide__content--wide">
-        <h1 class="animate-in">뒤에서 일어나는 일</h1>
-        <p class="subtitle animate-in">사용자의 한 마디가 거치는 6개 레이어</p>
+        <h1 class="animate-in" style="margin-bottom: 0.3rem"><span style="color: var(--accent)">페이지민트</span>의 구조</h1>
+        <p class="subtitle animate-in" style="margin-bottom: 1rem">사용자의 한 마디가 거치는 6개 프로젝트</p>
 
-        <div class="arch-chain animate-in">
-          <div class="arch-node arch--p6">
-            <div class="arch-label">P6 · Frontend</div>
-            <div class="arch-name">Flutter Web</div>
-            <div class="arch-tech">채팅 UI · 프리뷰 · 내보내기</div>
+        <div class="arch-full-v2 animate-in">
+          <!-- 가로 체인: P6 → P5 → P4 → P1 -->
+          <div class="arch-row">
+            <div class="arch-node-wrapper">
+              <a href="https://mint.surf" target="_blank" rel="noopener noreferrer" class="arch-node arch--p6">
+                <div class="arch-node-header"><i class="devicon-flutter-plain arch-icon"></i><span class="arch-label">Project 6</span></div>
+                <div class="arch-name">PageMint Client</div>
+                <div class="arch-tech">Flutter</div>
+              </a>
+              <div class="arch-sub-cards">
+                <a href="https://pub.dev/packages/flutter_device_platform_id" target="_blank" rel="noopener noreferrer" class="arch-sub-card"><i class="devicon-flutter-plain"></i> Device Platform ID</a>
+                <a href="https://pub.dev/packages/flutter_image_conversion/versions/2.1.1" target="_blank" rel="noopener noreferrer" class="arch-sub-card"><i class="devicon-flutter-plain"></i> Image Conversion</a>
+                <a href="https://pub.dev/packages/flutter_native_image_compress" target="_blank" rel="noopener noreferrer" class="arch-sub-card"><i class="devicon-flutter-plain"></i> Native Image Compress</a>
+              </div>
+            </div>
+            <div class="arch-link"><span>REST + SSE</span></div>
+            <div class="arch-node-wrapper">
+              <a href="https://mint.surf" target="_blank" rel="noopener noreferrer" class="arch-node arch--p5">
+                <div class="arch-node-header"><i class="devicon-dotnetcore-plain arch-icon"></i><span class="arch-label">Project 5</span></div>
+                <div class="arch-name">PageMint Server</div>
+                <div class="arch-tech">.NET 10</div>
+              </a>
+              <div class="arch-sub-cards">
+                <div class="arch-sub-card arch-sub-card--db"><i class="devicon-postgresql-plain" style="color: var(--green)"></i> PostgreSQL</div>
+              </div>
+            </div>
+            <div class="arch-link"><span>gRPC / Unix Socket</span></div>
+            <a href="https://mint.surf" target="_blank" rel="noopener noreferrer" class="arch-node arch--p4">
+              <div class="arch-node-header"><i class="devicon-nodejs-plain arch-icon"></i><span class="arch-label">Project 4</span></div>
+              <div class="arch-name">OpenCode Bridge</div>
+              <div class="arch-tech">Node.js Sidecar</div>
+            </a>
+            <div class="arch-link"><span>OpenCode SDK</span></div>
+            <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer" class="arch-node arch--p1 arch-fork-origin">
+              <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 1</span></div>
+              <div class="arch-name">OpenCode</div>
+              <div class="arch-tech">AI Engine</div>
+            </a>
           </div>
-          <div class="arch-link">
-            <span>REST</span>
-            <span>+ SSE</span>
-          </div>
-          <div class="arch-node arch--p5">
-            <div class="arch-label">P5 · API Server</div>
-            <div class="arch-name">ASP.NET Core</div>
-            <div class="arch-tech">인증 · 세션 · DB · 이미지</div>
-          </div>
-          <div class="arch-link">
-            <span>gRPC</span>
-            <span>Unix Socket</span>
-          </div>
-          <div class="arch-node arch--p4">
-            <div class="arch-label">P4 · Bridge</div>
-            <div class="arch-name">Node.js Sidecar</div>
-            <div class="arch-tech">프로토콜 변환 · 장애 복원</div>
-          </div>
-          <div class="arch-link">
-            <span>HTTP</span>
-            <span>Embedded</span>
-          </div>
-          <div class="arch-node arch--p3">
-            <div class="arch-label">P3 · Plugin</div>
-            <div class="arch-name">Shop Plugin</div>
-            <div class="arch-tech">4 AI 페르소나 워크플로우</div>
-          </div>
-        </div>
 
-        <div class="pipeline animate-in" style="margin-top: 2rem">
-          <div class="pipeline-step">
-            <div class="pipeline-header">요청 → 응답 흐름</div>
-            <div class="pipeline-flow">
-              <span class="pipe-node">사용자 메시지</span>
-              <span class="pipe-arrow">&rarr;</span>
-              <span class="pipe-node">P5 인증·저장</span>
-              <span class="pipe-arrow">&rarr;</span>
-              <span class="pipe-node">P4 gRPC 변환</span>
-              <span class="pipe-arrow">&rarr;</span>
-              <span class="pipe-node">P3 AI 처리</span>
-              <span class="pipe-arrow">&rarr;</span>
-              <span class="pipe-node">SSE 스트리밍 응답</span>
+          <!-- P1에서 갈라지는 플러그인 포크 -->
+          <div class="arch-fork">
+            <div class="arch-fork-branch arch-fork-upper">
+              <svg class="arch-fork-arrow" viewBox="0 0 100 60" preserveAspectRatio="none">
+                <path d="M0,55 Q50,55 95,5" stroke="var(--red)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+                <polygon points="93,0 100,6 90,6" fill="var(--red)" transform="rotate(-45,95,5)"/>
+              </svg>
+              <div class="arch-fork-label">Plugin</div>
+              <a href="https://github.com/code-yeongyu/oh-my-openagent" target="_blank" rel="noopener noreferrer" class="arch-node arch--p2">
+                <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 2</span></div>
+                <div class="arch-name">Oh My OpenCode</div>
+                <div class="arch-tech">Plugin Harness</div>
+              </a>
+            </div>
+            <div class="arch-fork-branch arch-fork-lower">
+              <svg class="arch-fork-arrow" viewBox="0 0 100 60" preserveAspectRatio="none">
+                <path d="M0,5 Q50,5 95,55" stroke="var(--accent)" stroke-width="2" fill="none" stroke-dasharray="6,4"/>
+                <polygon points="93,50 100,56 90,56" fill="var(--accent)" transform="rotate(45,95,55)"/>
+              </svg>
+              <div class="arch-fork-label">Plugin</div>
+              <a href="https://mint.surf" target="_blank" rel="noopener noreferrer" class="arch-node arch--p3">
+                <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 3</span></div>
+                <div class="arch-name">Design Agency</div>
+                <div class="arch-tech">AI Personas</div>
+              </a>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- SLIDE 3: 4-Persona AI 워크플로우 -->
     <section class="slide" data-slide="3">
       <div class="slide__content slide__content--wide">
-        <h1 class="animate-in">AI 에이전트 팀</h1>
+        <h1 class="animate-in"><i class="devicon-typescript-plain" style="color: var(--accent); font-size: 0.8em"></i> Project 3 AI Personas</h1>
         <p class="subtitle animate-in">하나의 AI가 아니라, 역할이 분리된 4명의 전문가</p>
 
         <div class="persona-grid persona-grid--main animate-in">
-          <div class="persona-card persona--hermes persona-card--active">
-            <div class="persona-avatar">H</div>
-            <h3>Hermes</h3>
-            <div class="persona-role">Director</div>
-            <p>사용자 인터뷰, 리서치,<br>전체 워크플로우 조율</p>
+          <div class="persona-wrapper">
+            <div class="persona-card persona--hermes persona-card--active">
+              <h3>Hermes</h3>
+              <div class="persona-role">Director</div>
+              <p>사용자 인터뷰, 리서치,<br>전체 워크플로우 조율</p>
+            </div>
+            <div class="persona-sub-cards">
+              <div class="persona-sub-card persona-sub--hermes"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" class="model-logo"> GPT-5.4-nano</div>
+            </div>
           </div>
-          <div class="persona-card persona--apollo persona-card--active">
-            <div class="persona-avatar">A</div>
-            <h3>Apollo</h3>
-            <div class="persona-role">Copywriter</div>
-            <p>마케팅 카피 작성,<br>스토리보드 구성</p>
+          <div class="persona-wrapper">
+            <div class="persona-card persona--apollo persona-card--active">
+              <h3>Apollo</h3>
+              <div class="persona-role">Copywriter</div>
+              <p>마케팅 카피 작성,<br>스토리보드 구성</p>
+            </div>
+            <div class="persona-sub-cards">
+              <div class="persona-sub-card persona-sub--apollo"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg" class="model-logo"> GPT-5.4</div>
+            </div>
           </div>
-          <div class="persona-card persona--athena persona-card--active">
-            <div class="persona-avatar">At</div>
-            <h3>Athena</h3>
-            <div class="persona-role">Designer</div>
-            <p>HTML/CSS 페이지<br>레이아웃·비주얼 제작</p>
+          <div class="persona-wrapper">
+            <div class="persona-card persona--athena persona-card--active">
+              <h3>Athena</h3>
+              <div class="persona-role">Designer</div>
+              <p>HTML/CSS 페이지<br>레이아웃·비주얼 제작</p>
+            </div>
+            <div class="persona-sub-cards">
+              <div class="persona-sub-card persona-sub--athena"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlegemini.svg" class="model-logo"> Nano Banana</div>
+            </div>
           </div>
-          <div class="persona-card persona--pygmalion persona-card--active">
-            <div class="persona-avatar">P</div>
-            <h3>Pygmalion</h3>
-            <div class="persona-role">Image Engineer</div>
-            <p>이미지 생성 프롬프트<br>설계·품질 관리</p>
+          <div class="persona-wrapper">
+            <div class="persona-card persona--pygmalion persona-card--active">
+              <h3>Pygmalion</h3>
+              <div class="persona-role">Image Engineer</div>
+              <p>이미지 생성 프롬프트<br>설계·품질 관리</p>
+            </div>
+            <div class="persona-sub-cards">
+              <div class="persona-sub-card persona-sub--pygmalion"><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlegemini.svg" class="model-logo"> Gemini 3.1 Pro</div>
+            </div>
           </div>
         </div>
 
-        <div class="constraint-compare animate-in" style="margin-top: 1.5rem">
-          <div class="constraint-box constraint--cultural">
-            <h3>문화적 제약 (시스템 프롬프트)</h3>
-            <ul>
-              <li>각 페르소나는 자기 역할 <strong>밖의 도구를 호출하지 않음</strong></li>
-              <li>Apollo는 브리프를 수정할 수 없고, Athena는 카피를 변경할 수 없음</li>
-            </ul>
-            <div class="constraint-result">AI 모델이 자발적으로 준수</div>
-          </div>
-          <div class="constraint-vs">+</div>
-          <div class="constraint-box constraint--programmatic">
-            <h3>프로그래밍 제약 (Phase Guard)</h3>
-            <ul>
-              <li>단계 전이는 <strong>전진만 허용</strong>, 후퇴 불가</li>
-              <li>도구 호출 시 <strong>Zod 스키마</strong>로 런타임 검증</li>
-            </ul>
-            <div class="constraint-result">코드가 강제 실행</div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- SLIDE 4: 핵심 기술 결정들 -->
+    <!-- SLIDE 4: Claude Code 기반 개발 방식 -->
     <section class="slide" data-slide="4">
-      <div class="slide__content slide__content--wide">
-        <h1 class="animate-in">이 구조에서 어려웠던 것들</h1>
-        <p class="subtitle animate-in">단순히 API를 연결하는 게 아닙니다</p>
-
-        <div class="challenge-grid animate-in">
-          <div class="challenge-card">
-            <h3>실시간 스트리밍</h3>
-            <p>AI 응답이 4개 레이어를 거쳐 실시간으로 사용자에게 도달해야 합니다. SSE 9종 이벤트를 설계하고, 장기 연결의 끊김을 감지하는 liveness 시스템을 구축했습니다.</p>
-          </div>
-          <div class="challenge-card">
-            <h3>메타데이터 분리</h3>
-            <p>AI가 "말하는 것"과 "선언하는 것"을 다른 채널로 분리했습니다. 텍스트 파싱 대신 구조화된 이벤트로 단계 전환, 진행 상태를 안정적으로 전달합니다.</p>
-          </div>
-          <div class="challenge-card">
-            <h3>프로토콜 변환</h3>
-            <p>.NET 서버와 Node.js AI 런타임 사이를 gRPC로 연결하는 Bridge를 만들었습니다. 41개 RPC, 회로 차단기, 자동 재접속까지 처리합니다.</p>
-          </div>
-          <div class="challenge-card">
-            <h3>컨텍스트 관리</h3>
-            <p>긴 대화에서 AI의 컨텍스트 윈도우가 부족해지는 문제를 해결했습니다. 핵심 자산(리서치, 스토리보드)은 보존하고 대화만 압축하는 전략입니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: Claude Code 기반 개발 방식 -->
-    <section class="slide" data-slide="5">
       <div class="slide__content slide__content--wide">
         <h1 class="animate-in">개발도 AI와 함께</h1>
         <p class="subtitle animate-in">AI 에이전트가 AI 에이전트를 개발하는 구조</p>
@@ -260,74 +246,15 @@
       </div>
     </section>
 
-    <!-- SLIDE 6: 현재 진척 -->
-    <section class="slide" data-slide="6">
-      <div class="slide__content slide__content--wide">
-        <h1 class="animate-in">지금까지 만든 것</h1>
-        <p class="subtitle animate-in">아이디어가 아니라, 실제로 동작하는 시스템입니다</p>
-
-        <div class="arch-meta animate-in" style="margin: 2rem 0">
-          <div class="arch-meta-item">
-            <div class="meta-value">137K+</div>
-            <div class="meta-label">Lines of Code</div>
-          </div>
-          <div class="arch-meta-item">
-            <div class="meta-value">865+</div>
-            <div class="meta-label">Test Cases</div>
-          </div>
-          <div class="arch-meta-item">
-            <div class="meta-value">6</div>
-            <div class="meta-label">Repositories</div>
-          </div>
-          <div class="arch-meta-item">
-            <div class="meta-value">41</div>
-            <div class="meta-label">gRPC Endpoints</div>
-          </div>
-        </div>
-
-        <div class="stack-grid animate-in">
-          <div class="stack-card">
-            <h3>Frontend (P6)</h3>
-            <div class="stack-items">
-              <span>Flutter Web</span>
-              <span>Riverpod</span>
-              <span>GoRouter</span>
-            </div>
-            <p class="stack-why">채팅 UI, 실시간 프리뷰, OAuth 로그인, 다국어 지원</p>
-          </div>
-          <div class="stack-card">
-            <h3>API Server (P5)</h3>
-            <div class="stack-items">
-              <span>ASP.NET Core</span>
-              <span>.NET 10</span>
-              <span>PostgreSQL</span>
-            </div>
-            <p class="stack-why">인증, 세션 관리, 이미지 업로드, SSE 스트리밍</p>
-          </div>
-          <div class="stack-card">
-            <h3>Bridge (P4)</h3>
-            <div class="stack-items">
-              <span>Node.js</span>
-              <span>gRPC</span>
-              <span>Protobuf</span>
-            </div>
-            <p class="stack-why">프로토콜 변환, 회로 차단기, 장애 자동 복구</p>
-          </div>
-          <div class="stack-card">
-            <h3>AI Plugin (P3)</h3>
-            <div class="stack-items">
-              <span>TypeScript</span>
-              <span>Bun</span>
-              <span>Zod</span>
-            </div>
-            <p class="stack-why">4-페르소나 에이전시, Phase Guard, 메타데이터 이중 방출</p>
-          </div>
-        </div>
+    <!-- SLIDE 5: 스크린샷 -->
+    <section class="slide" data-slide="5">
+      <div class="slide__content" style="align-items: center">
+        <img src="https://github.com/user-attachments/assets/7db6afac-8ba3-4403-a12e-f235c1aa0aac" alt="PageMint Screenshot" style="max-width: 90%; max-height: 85vh; border-radius: var(--radius); border: 1px solid var(--border); object-fit: contain;">
       </div>
     </section>
 
-    <!-- SLIDE 7: 왜 파트너가 필요한가 + CTA -->
-    <section class="slide slide--closing" data-slide="7">
+    <!-- SLIDE 6: 왜 파트너가 필요한가 + CTA -->
+    <section class="slide slide--closing" data-slide="6">
       <div class="slide__content">
         <h1 class="animate-in">
           구현할 수 있지만,<br>혼자서는 완성할 수 없습니다
@@ -359,7 +286,7 @@
         </div>
 
         <div class="demo-links animate-in" style="margin-top: 2rem">
-          <a href="https://page.mint.surf" target="_blank" class="demo-link-card">
+          <a href="https://page.mint.surf" target="_blank" rel="noopener noreferrer" class="demo-link-card">
             <div class="demo-link-icon">live</div>
             <h3>page.mint.surf</h3>
             <p>직접 사용해보세요</p>
@@ -374,7 +301,7 @@
 
   <!-- Slide Counter -->
   <div class="slide-counter">
-    <span class="current">1</span> / <span class="total">8</span>
+    <span class="current">1</span> / <span class="total">7</span>
   </div>
 
   <!-- Navigation -->
@@ -387,6 +314,6 @@
     </button>
   </nav>
 
-  <script type="module" src="slides.js"></script>
+  <script src="slides.js"></script>
 </body>
 </html>
