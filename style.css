@@ -500,17 +500,22 @@ h1 {
 .arch--p2 .arch-icon { color: var(--red); }
 .arch--p3 .arch-icon { color: var(--accent); }
 
+/* Stitch logo in arch-tech */
+.stitch-logo { height: 0.9em; width: auto; vertical-align: -0.1em; display: inline; }
+
 /* OpenCode square icon in arch header */
 img.opencode-icon { height: 1.4rem; width: 1.4rem; border-radius: 4px; opacity: 0.85; vertical-align: middle; }
 
 /* OpenCode wordmark in arch-name row */
 img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
+.arch-tech img.opencode-wordmark { height: 0.75rem; }
 [data-theme="dark"] .opencode-logo--light { display: none; }
 [data-theme="dark"] .opencode-logo--dark  { display: inline; }
 [data-theme="light"] .opencode-logo--dark  { display: none; }
 [data-theme="light"] .opencode-logo--light { display: inline; }
 .arch-name { font-size: 1.15rem; font-weight: 700; margin: 0.3rem 0; }
 .arch-tech { font-size: 0.9rem; color: var(--text-secondary); }
+.arch-tech-prefix { font-size: 0.5rem; opacity: 0.6; }
 .arch-link {
   display: flex;
   flex-direction: column;
@@ -768,135 +773,123 @@ img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
 .stat-value { font-size: 2.5rem; font-weight: 700; color: var(--accent-light); }
 .stat-label { font-size: 0.8rem; color: var(--text-secondary); }
 
-/* ── Orchestration Slide ── */
-.orch { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 0.8rem; }
-
-/* Intent bubble */
-.orch-intent-bubble {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 0.5rem 1.4rem;
-  font-size: 1rem;
-  color: var(--text);
-  font-style: italic;
-  position: relative;
-}
-.orch-intent-bubble::before {
-  content: '💬';
-  position: absolute;
-  left: -1.8rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.1rem;
-}
-
-/* Arrow down */
-.orch-arrow-down {
-  width: 2px;
-  height: 1.2rem;
-  background: linear-gradient(to bottom, var(--accent), var(--accent-dim));
-  position: relative;
-}
-.orch-arrow-down::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid var(--accent);
-}
-
-/* Hub — P0 */
-.orch-hub {
-  background: linear-gradient(135deg, var(--bg-card), rgba(109,225,210,0.08));
-  border: 2px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 0.6rem 2rem;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 0 24px rgba(109,225,210,0.12);
-}
-.orch-hub-badge {
-  font-size: 0.65rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin-bottom: 0.15rem;
-}
-.orch-hub-name { font-size: 1.15rem; font-weight: 800; }
-.orch-hub-action {
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  margin-top: 0.15rem;
-  letter-spacing: 0.02em;
-}
-
-/* Fan-out lanes */
-.orch-fanout {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.6rem;
-  width: 100%;
-  margin-top: 1rem;
-  position: relative;
-}
-/* Connector lines from hub to lanes */
-.orch-fanout::before {
-  content: '';
-  position: absolute;
-  top: -1rem;
-  left: 10%;
-  right: 10%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent), var(--accent-dim));
-}
-
-.orch-lane {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  position: relative;
-}
-/* Vertical connector dot at top of each lane */
-.orch-lane::before {
-  content: '';
-  position: absolute;
-  top: -1.35rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 6px rgba(109,225,210,0.5);
-}
-
-.orch-lane-header {
-  font-size: 0.85rem;
-  font-weight: 700;
+/* ── Orchestration Slide (3-col layout) ── */
+.orch-layout {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 5rem;
+  width: 100%;
+  margin-top: 0.5rem;
 }
-.orch-lane-id {
+
+/* Side panels */
+.orch-side {
+  flex: 0 0 180px;
+}
+.orch-side-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
+}
+.orch-side-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.orch-side-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.orch-side-file {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.orch-side-desc {
   font-size: 0.65rem;
-  font-weight: 800;
-  padding: 0.1rem 0.35rem;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  line-height: 1.3;
 }
-.orch-lane--p3 .orch-lane-id { background: rgba(109,225,210,0.15); color: var(--accent); }
-.orch-lane--p4 .orch-lane-id { background: rgba(255,169,85,0.15); color: var(--orange); }
-.orch-lane--p5 .orch-lane-id { background: rgba(52,211,153,0.15); color: var(--green); }
-.orch-lane--p6 .orch-lane-id { background: rgba(116,185,255,0.15); color: var(--blue); }
+
+/* Center orbit — fixed size matching original */
+.orch-orbit {
+  position: relative;
+  flex: 0 0 90vh;
+  max-width: calc(100% - 400px);
+  height: 62vh;
+}
+
+/* SVG connectors — full coverage behind nodes */
+.orch-orbit-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Center Hub — P0 */
+.orch-o-hub {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: linear-gradient(135deg, var(--bg-card), rgba(109,225,210,0.12));
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(109,225,210,0.18), 0 0 80px rgba(109,225,210,0.06);
+}
+.orch-o-hub-badge {
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.1rem 0;
+}
+.orch-o-hub-claude {
+  height: 1rem;
+  width: auto;
+}
+.orch-o-hub-name { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); }
+.orch-o-hub-sub {
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+/* X-positioned arch-node cards at 4 corners */
+.orch-o-pos--tl,
+.orch-o-pos--tr,
+.orch-o-pos--br,
+.orch-o-pos--bl {
+  position: absolute;
+  z-index: 1;
+}
+.orch-o-pos--tl { top: 0;    left: 0;    }
+.orch-o-pos--tr { top: 0;    right: 0;   }
+.orch-o-pos--br { bottom: 0; right: 0;   }
+.orch-o-pos--bl { bottom: 0; left: 0;    }
+.orch-orbit .arch-node { width: 215px; box-sizing: border-box; }
 
 /* Pipeline steps */
 .orch-pipeline {
@@ -941,30 +934,6 @@ img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
   50% { box-shadow: 0 0 8px 2px rgba(255,214,58,0.2); }
 }
 
-/* Stats row */
-.orch-stats {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-top: 1.2rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-  width: 100%;
-}
-.orch-stat { text-align: center; }
-.orch-stat-val {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--accent);
-  font-family: var(--font-mono);
-}
-.orch-stat-lbl {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-top: 0.15rem;
-}
 
 /* ── Routing ── */
 .routing-flow {
@@ -1272,8 +1241,9 @@ img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
   .phase-arrow { transform: rotate(90deg); }
   .dev-flow { flex-direction: column; }
   .dev-arrow { transform: rotate(90deg); }
-  .orch-fanout { grid-template-columns: repeat(2, 1fr); }
-  .orch-stats { gap: 1.5rem; }
+  .orch-orbit { height: 50vh; }
+  .orch-o-hub { width: 110px; height: 110px; }
+  .orch-o-hub-name { font-size: 0.9rem; }
   .demo-links { flex-direction: column; align-items: center; }
   .closing-stats { gap: 1.5rem; flex-wrap: wrap; }
   .arch-meta { gap: 1.5rem; flex-wrap: wrap; }

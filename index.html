@@ -213,96 +213,106 @@
         <h1 class="animate-in">개발도 AI와 함께</h1>
         <p class="subtitle animate-in">AI 에이전트가 AI 에이전트를 개발하는 구조</p>
 
-        <div class="orch animate-in">
-          <!-- 사용자 의도 입력 -->
-          <div class="orch-intent">
-            <div class="orch-intent-bubble">"상세페이지에 공유 링크 기능을 추가하자"</div>
+        <div class="orch-layout animate-in">
+
+        <!-- Left: Documents -->
+        <div class="orch-side orch-side--left">
+          <h3 class="orch-side-title">Documents</h3>
+          <ul class="orch-side-list">
+            <li><span class="orch-side-file">AGENTS.md</span><span class="orch-side-desc">에이전트 행동 규약</span></li>
+            <li><span class="orch-side-file">ARCHITECTURE.md</span><span class="orch-side-desc">서비스 체인 &amp; 계약</span></li>
+            <li><span class="orch-side-file">decisions/</span><span class="orch-side-desc">크로스 프로젝트 ADR</span></li>
+            <li><span class="orch-side-file">intents/</span><span class="orch-side-desc">사용자 의도 기록</span></li>
+            <li><span class="orch-side-file">docs/</span><span class="orch-side-desc">배포 &amp; PR 워크플로우</span></li>
+          </ul>
+        </div>
+
+        <!-- Center: Orbit -->
+        <div class="orch-orbit">
+          <!-- SVG: orbit ring + X connectors + animated pulses -->
+          <svg class="orch-orbit-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+            <circle cx="50" cy="50" r="34" fill="none" stroke="var(--accent)" stroke-width="0.15" opacity="0.15"/>
+            <line x1="50" y1="50" x2="15" y2="15" stroke="var(--accent)" stroke-width="0.25" stroke-dasharray="1,0.8" opacity="0.35"/>
+            <line x1="50" y1="50" x2="85" y2="15" stroke="var(--orange)"  stroke-width="0.25" stroke-dasharray="1,0.8" opacity="0.35"/>
+            <line x1="50" y1="50" x2="85" y2="85" stroke="var(--green)"   stroke-width="0.25" stroke-dasharray="1,0.8" opacity="0.35"/>
+            <line x1="50" y1="50" x2="15" y2="85" stroke="var(--blue)"    stroke-width="0.25" stroke-dasharray="1,0.8" opacity="0.35"/>
+            <circle r="0.7" fill="var(--accent)">
+              <animate attributeName="cx" values="50;15;50" dur="2.8s" repeatCount="indefinite"/>
+              <animate attributeName="cy" values="50;15;50" dur="2.8s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="0.7" fill="var(--orange)">
+              <animate attributeName="cx" values="50;85;50" dur="2.8s" repeatCount="indefinite" begin="0.7s"/>
+              <animate attributeName="cy" values="50;15;50" dur="2.8s" repeatCount="indefinite" begin="0.7s"/>
+              <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite" begin="0.7s"/>
+            </circle>
+            <circle r="0.7" fill="var(--green)">
+              <animate attributeName="cx" values="50;85;50" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+              <animate attributeName="cy" values="50;85;50" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+              <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite" begin="1.4s"/>
+            </circle>
+            <circle r="0.7" fill="var(--blue)">
+              <animate attributeName="cx" values="50;15;50" dur="2.8s" repeatCount="indefinite" begin="2.1s"/>
+              <animate attributeName="cy" values="50;85;50" dur="2.8s" repeatCount="indefinite" begin="2.1s"/>
+              <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite" begin="2.1s"/>
+            </circle>
+          </svg>
+
+          <!-- Center: P0 Hub -->
+          <div class="orch-o-hub">
+            <div class="orch-o-hub-name">페이지민트</div>
+            <div class="orch-o-hub-badge"><img src="claude-logo.svg" alt="Claude" class="orch-o-hub-claude">Meta Project</div>
+            <div class="orch-o-hub-sub">Orchestrator</div>
           </div>
 
-          <div class="orch-arrow-down"></div>
-
-          <!-- P0 오케스트레이터 -->
-          <div class="orch-hub">
-            <div class="orch-hub-badge">P0 Orchestrator</div>
-            <div class="orch-hub-name">page-mint</div>
-            <div class="orch-hub-action">분석 &rarr; 분해 &rarr; 이슈 배포</div>
-          </div>
-
-          <!-- 방사형 팬아웃 -->
-          <div class="orch-fanout">
-            <div class="orch-lane">
-              <div class="orch-lane-header orch-lane--p3">
-                <span class="orch-lane-id">P3</span> Shop Plugin
-              </div>
-              <div class="orch-pipeline">
-                <span class="orch-pip" title="GitHub Issue">Issue</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip" title="Branch">Branch</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip" title="Implementation">Code</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip orch-pip--done" title="Pull Request">PR &#10003;</span>
-              </div>
-            </div>
-            <div class="orch-lane">
-              <div class="orch-lane-header orch-lane--p4">
-                <span class="orch-lane-id">P4</span> Bridge
-              </div>
-              <div class="orch-pipeline">
-                <span class="orch-pip">Issue</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip">Branch</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip" title="Implementation">Code</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip orch-pip--done">PR &#10003;</span>
-              </div>
-            </div>
-            <div class="orch-lane">
-              <div class="orch-lane-header orch-lane--p5">
-                <span class="orch-lane-id">P5</span> Server
-              </div>
-              <div class="orch-pipeline">
-                <span class="orch-pip">Issue</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip">Branch</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip orch-pip--active" title="In progress">Code</span>
-                <span class="orch-pip-arrow orch-pip-arrow--dim">&rarr;</span>
-                <span class="orch-pip orch-pip--pending">PR</span>
-              </div>
-            </div>
-            <div class="orch-lane">
-              <div class="orch-lane-header orch-lane--p6">
-                <span class="orch-lane-id">P6</span> Client
-              </div>
-              <div class="orch-pipeline">
-                <span class="orch-pip">Issue</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip">Branch</span>
-                <span class="orch-pip-arrow">&rarr;</span>
-                <span class="orch-pip orch-pip--active">Code</span>
-                <span class="orch-pip-arrow orch-pip-arrow--dim">&rarr;</span>
-                <span class="orch-pip orch-pip--pending">PR</span>
-              </div>
+          <!-- Top-Left: P3 -->
+          <div class="orch-o-pos--tl">
+            <div class="arch-node arch--p3">
+              <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 3</span></div>
+              <div class="arch-name">Design Agency</div>
+              <div class="arch-tech"><span class="arch-tech-prefix">powered by</span> <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googlegemini.svg" class="model-logo"> Gemini</div>
             </div>
           </div>
 
-          <!-- 하단 실적 -->
-          <div class="orch-stats">
-            <div class="orch-stat">
-              <div class="orch-stat-val">4</div>
-              <div class="orch-stat-lbl">Parallel Agents</div>
-            </div>
-            <div class="orch-stat">
-              <div class="orch-stat-val">~5min</div>
-              <div class="orch-stat-lbl">Intent &rarr; PRs</div>
-            </div>
-            <div class="orch-stat">
-              <div class="orch-stat-val">0</div>
-              <div class="orch-stat-lbl">Human Keystrokes</div>
+          <!-- Top-Right: P4 -->
+          <div class="orch-o-pos--tr">
+            <div class="arch-node arch--p4">
+              <div class="arch-node-header"><i class="devicon-nodejs-plain arch-icon"></i><span class="arch-label">Project 4</span></div>
+              <div class="arch-name"><img src="opencode-logo-dark.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--dark"><img src="opencode-logo-light.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--light"> Bridge</div>
+              <div class="arch-tech"><span class="arch-tech-prefix">powered by</span> <img src="opencode-logo-dark.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--dark"><img src="opencode-logo-light.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--light"> SDK</div>
             </div>
           </div>
+
+          <!-- Bottom-Right: P5 -->
+          <div class="orch-o-pos--br">
+            <div class="arch-node arch--p5">
+              <div class="arch-node-header"><i class="devicon-dotnetcore-plain arch-icon"></i><span class="arch-label">Project 5</span></div>
+              <div class="arch-name">PageMint Server</div>
+              <div class="arch-tech"><span class="arch-tech-prefix">powered by</span> <i class="devicon-postgresql-plain" style="color: var(--green)"></i> PostgreSQL</div>
+            </div>
+          </div>
+
+          <!-- Bottom-Left: P6 -->
+          <div class="orch-o-pos--bl">
+            <div class="arch-node arch--p6">
+              <div class="arch-node-header"><i class="devicon-flutter-plain arch-icon"></i><span class="arch-label">Project 6</span></div>
+              <div class="arch-name">PageMint Client</div>
+              <div class="arch-tech"><span class="arch-tech-prefix">built with</span> <img src="stitch-logo.png" alt="Stitch" class="stitch-logo"> Stitch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Reviewer Bots -->
+        <div class="orch-side orch-side--right">
+          <h3 class="orch-side-title">Reviewer Bots</h3>
+          <ul class="orch-side-list">
+            <li><span class="orch-side-file">claude-pr-review</span><span class="orch-side-desc">PR 코드 리뷰 자동화</span></li>
+            <li><span class="orch-side-file">claude-issue-review</span><span class="orch-side-desc">이슈 분석 &amp; 코멘트</span></li>
+            <li><span class="orch-side-file">codex-pr-review</span><span class="orch-side-desc">세컨드 오피니언 리뷰</span></li>
+            <li><span class="orch-side-file">run-gh.sh</span><span class="orch-side-desc">4개 리포 x 2 봇 일괄 실행</span></li>
+          </ul>
+        </div>
+
         </div>
 
       </div>
