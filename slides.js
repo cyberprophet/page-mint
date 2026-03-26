@@ -2,7 +2,7 @@
 class ThemeManager {
   constructor() {
     this.btn = document.querySelector('.theme-toggle');
-    this.modes = ['dark', 'light', 'system'];
+    this.modes = ['dark', 'light'];
     this.idx = this.modes.indexOf(localStorage.getItem('theme') || 'dark');
     if (this.idx < 0) this.idx = 0;
     this.apply();
@@ -17,7 +17,6 @@ class ThemeManager {
   }
   isDark() {
     const m = this.modes[this.idx];
-    if (m === 'system') return matchMedia('(prefers-color-scheme:dark)').matches;
     return m === 'dark';
   }
   updateIcon() {
