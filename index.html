@@ -112,13 +112,13 @@
             <div class="arch-link"><span>gRPC / Unix Socket</span></div>
             <a href="https://mint.surf" target="_blank" rel="noopener noreferrer" class="arch-node arch--p4">
               <div class="arch-node-header"><i class="devicon-nodejs-plain arch-icon"></i><span class="arch-label">Project 4</span></div>
-              <div class="arch-name">OpenCode Bridge</div>
+              <div class="arch-name"><img src="opencode-logo-dark.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--dark"><img src="opencode-logo-light.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--light"> Bridge</div>
               <div class="arch-tech">Node.js Sidecar</div>
             </a>
             <div class="arch-link"><span>OpenCode SDK</span></div>
             <a href="https://opencode.ai" target="_blank" rel="noopener noreferrer" class="arch-node arch--p1 arch-fork-origin">
-              <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 1</span></div>
-              <div class="arch-name">OpenCode</div>
+              <div class="arch-node-header"><img src="opencode-icon.svg" alt="OpenCode" class="arch-icon opencode-icon"><span class="arch-label">Project 1</span></div>
+              <div class="arch-name"><img src="opencode-logo-dark.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--dark"><img src="opencode-logo-light.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--light"></div>
               <div class="arch-tech">AI Engine</div>
             </a>
           </div>
@@ -133,7 +133,7 @@
               <div class="arch-fork-label">Plugin</div>
               <a href="https://github.com/code-yeongyu/oh-my-openagent" target="_blank" rel="noopener noreferrer" class="arch-node arch--p2">
                 <div class="arch-node-header"><i class="devicon-typescript-plain arch-icon"></i><span class="arch-label">Project 2</span></div>
-                <div class="arch-name">Oh My OpenCode</div>
+                <div class="arch-name">Oh My <img src="opencode-logo-dark.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--dark"><img src="opencode-logo-light.svg" alt="OpenCode" class="opencode-wordmark opencode-logo--light"></div>
                 <div class="arch-tech">Plugin Harness</div>
               </a>
             </div>
@@ -213,36 +213,98 @@
         <h1 class="animate-in">개발도 AI와 함께</h1>
         <p class="subtitle animate-in">AI 에이전트가 AI 에이전트를 개발하는 구조</p>
 
-        <div class="dev-flow animate-in">
-          <div class="dev-step">
-            <div class="dev-icon">intent</div>
-            <h4>의도 전달</h4>
-            <p>"테스트 커버리지를<br>강화하자"</p>
+        <div class="orch animate-in">
+          <!-- 사용자 의도 입력 -->
+          <div class="orch-intent">
+            <div class="orch-intent-bubble">"상세페이지에 공유 링크 기능을 추가하자"</div>
           </div>
-          <div class="dev-arrow">&rarr;</div>
-          <div class="dev-step">
-            <div class="dev-icon">decompose</div>
-            <h4>작업 분해</h4>
-            <p>P0가 4개 프로젝트에<br>이슈 자동 생성</p>
+
+          <div class="orch-arrow-down"></div>
+
+          <!-- P0 오케스트레이터 -->
+          <div class="orch-hub">
+            <div class="orch-hub-badge">P0 Orchestrator</div>
+            <div class="orch-hub-name">page-mint</div>
+            <div class="orch-hub-action">분석 &rarr; 분해 &rarr; 이슈 배포</div>
           </div>
-          <div class="dev-arrow">&rarr;</div>
-          <div class="dev-step">
-            <div class="dev-icon">execute</div>
-            <h4>병렬 실행</h4>
-            <p>팀 에이전트가<br>동시에 구현</p>
+
+          <!-- 방사형 팬아웃 -->
+          <div class="orch-fanout">
+            <div class="orch-lane">
+              <div class="orch-lane-header orch-lane--p3">
+                <span class="orch-lane-id">P3</span> Shop Plugin
+              </div>
+              <div class="orch-pipeline">
+                <span class="orch-pip" title="GitHub Issue">Issue</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip" title="Branch">Branch</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip" title="Implementation">Code</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip orch-pip--done" title="Pull Request">PR &#10003;</span>
+              </div>
+            </div>
+            <div class="orch-lane">
+              <div class="orch-lane-header orch-lane--p4">
+                <span class="orch-lane-id">P4</span> Bridge
+              </div>
+              <div class="orch-pipeline">
+                <span class="orch-pip">Issue</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip">Branch</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip" title="Implementation">Code</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip orch-pip--done">PR &#10003;</span>
+              </div>
+            </div>
+            <div class="orch-lane">
+              <div class="orch-lane-header orch-lane--p5">
+                <span class="orch-lane-id">P5</span> Server
+              </div>
+              <div class="orch-pipeline">
+                <span class="orch-pip">Issue</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip">Branch</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip orch-pip--active" title="In progress">Code</span>
+                <span class="orch-pip-arrow orch-pip-arrow--dim">&rarr;</span>
+                <span class="orch-pip orch-pip--pending">PR</span>
+              </div>
+            </div>
+            <div class="orch-lane">
+              <div class="orch-lane-header orch-lane--p6">
+                <span class="orch-lane-id">P6</span> Client
+              </div>
+              <div class="orch-pipeline">
+                <span class="orch-pip">Issue</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip">Branch</span>
+                <span class="orch-pip-arrow">&rarr;</span>
+                <span class="orch-pip orch-pip--active">Code</span>
+                <span class="orch-pip-arrow orch-pip-arrow--dim">&rarr;</span>
+                <span class="orch-pip orch-pip--pending">PR</span>
+              </div>
+            </div>
           </div>
-          <div class="dev-arrow">&rarr;</div>
-          <div class="dev-step">
-            <div class="dev-icon">review</div>
-            <h4>PR & 리뷰</h4>
-            <p>자동 커밋, PR 생성,<br>리뷰 대응, 머지</p>
+
+          <!-- 하단 실적 -->
+          <div class="orch-stats">
+            <div class="orch-stat">
+              <div class="orch-stat-val">4</div>
+              <div class="orch-stat-lbl">Parallel Agents</div>
+            </div>
+            <div class="orch-stat">
+              <div class="orch-stat-val">~5min</div>
+              <div class="orch-stat-lbl">Intent &rarr; PRs</div>
+            </div>
+            <div class="orch-stat">
+              <div class="orch-stat-val">0</div>
+              <div class="orch-stat-lbl">Human Keystrokes</div>
+            </div>
           </div>
         </div>
 
-        <div class="quote animate-in">
-          P0 메타 리포지토리가 전체를 오케스트레이션하고,<br>
-          각 프로젝트의 에이전트가 <strong>자기 영역을 책임집니다</strong>
-        </div>
       </div>
     </section>
 
