@@ -790,7 +790,7 @@ img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
 .orch-side-title {
   font-size: 0.75rem;
   font-weight: 700;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.1em;
   color: var(--accent);
   margin-bottom: 0.7rem;
@@ -830,6 +830,15 @@ img.opencode-wordmark { height: 1rem; width: auto; vertical-align: middle; }
   transition: color 0.2s ease;
 }
 .orch-side-link:hover .orch-side-file { color: var(--accent); }
+.orch-side-screenshot {
+  width: 150%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  margin-top: 0.35rem;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+.orch-side-screenshot:hover { opacity: 1; }
 .orch-side-group { margin-bottom: 0.6rem; }
 .orch-side-group:last-child { margin-bottom: 0; }
 .orch-side-group-label {
